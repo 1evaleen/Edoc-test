@@ -5,4 +5,4 @@ Open index.html in a browser
 
 
 ## Online demo
-edoc-test.surge.sh
+http://edoc-test.surge.sh

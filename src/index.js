@@ -3,9 +3,6 @@ const API = "https://edocsapi.azurewebsites.net/Core6/api";
 const appToken = "xikxafatwae";
 let token = sessionStorage.getItem('edocs_token');
 
-if(!token) {
-    authenticate();
-}
 
 const loginDetails = {
  username: "testuser1@edocuments.co.uk",
@@ -16,6 +13,11 @@ const searchResultsListEl = document.getElementById('results');
 const searchInput = document.getElementById('search');
 const btnSearch = document.getElementById('btnSearch');
 const docsEl = document.getElementById('documents');
+
+
+if(!token) {
+    authenticate();
+}
 
 btnSearch.addEventListener('click', () => {
     const headers = buildHeaders(token);
@@ -37,7 +39,7 @@ btnSearch.addEventListener('click', () => {
             // It will allways fail: Project not found. The supplied ID is either invalid or you may not have access to the project.
             // see the separate example for counting the document's tasks
             fetch(`${API}/Reports/ByProjectId/${pid}`, { headers }).then(res => res.json()).then(data => {
-                console.log('Data ', data);
+                console.warn(data.Error.Message);
             })
         })
     })
@@ -45,7 +47,7 @@ btnSearch.addEventListener('click', () => {
 
 const buildSearchEndpoint = searchTerm => `${API}/AzureSearch/Search?searchText=${searchTerm}&filter=(siteid eq '00000000-0000-0000-0000-000000000000') and not (fileid eq '')&facet=`;
 
-const buildHeaders = token => {
+function buildHeaders(token) {
     return {
         'Content-Type': 'application/json',
         'Authorization': `Digest username="${appToken}" realm="_root_" password="${token || ''}"`
@@ -56,7 +58,7 @@ const refreshPage = () => {
     window.location.reload();
 }
 
-const authenticate = () => {
+function authenticate() {
     fetch(LOGIN_API, {
         method: 'POST',
         headers: buildHeaders(),
