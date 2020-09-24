@@ -1,0 +1,27 @@
+{
+  "name": "edoc-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^4.14.1",
+    "sass": "^1.26.11",
+    "sass-loader": "^10.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "styles": "node-sass ./styles/index.scss ./dist/index.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1evaleen/Edoc-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1evaleen/Edoc-test/issues"
+  },
+  "homepage": "https://github.com/1evaleen/Edoc-test#readme"
+}

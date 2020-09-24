@@ -1,0 +1,47 @@
+@import './resets';
+
+
+body {
+    margin: 40px;
+}
+.search {
+    margin-bottom: 20px;
+
+    &__input {
+        width: 500px;
+        padding: 10px;
+    }
+}
+#results {
+    width: 500px;
+}
+.search-result {
+    font-size: 20px;
+    margin-bottom: 25px;
+
+    &__document-name {
+        font-weight: bold;
+        display: inline;
+        line-height: 32px;
+    }
+    &__task-count {
+        float: right;
+        line-height: 32px;
+    }
+    &__site-name {
+        font-size: 16px;
+    }
+    &__project-name {
+        font-size: 16px;
+    }
+}
+
+ .search-example,
+ .portfolio-example {
+    border: solid 1px lightblue;
+    width: 40%;
+    margin: 10px;
+    float: left;
+    padding: 2rem;
+    border-radius: 5px;
+ }
